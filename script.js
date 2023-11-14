@@ -6,6 +6,8 @@ const addNewCardButton = document.querySelector('[data-add-card-button]');
 const modalCardArea = document.querySelector('[data-modal-card-area]');
 const createNewCardButton = document.querySelector('[data-create-card-button]');
 const kanbanArea = document.querySelector('[data-kanban-area]');
+const closeCreateColumn = document.querySelector('[data-create-column]');
+const closeCreateCard = document.querySelector('[data-create-card]');
 
 function handleDragOver(event) {
     event.preventDefault();
@@ -42,7 +44,7 @@ function handleAddCard() {
     const createNewCard = document.createElement('div');
     const createTitleArea = document.createElement('div');
     const createImageBin = document.createElement('img');    
-    
+
     createImageBin.setAttribute('src', 'assets/images/bin-icon.svg');
     createImageBin.setAttribute('alt', 'bin-icon');;
     createImageBin.classList.add('img-header');
@@ -98,11 +100,13 @@ function handleCreateTaskPress() {
 }
 
 function showModal() {
-    modalArea.style.display = 'flex';
+    modalArea.style.display = 'flex'
 }
 
 function hideModal() {
     modalArea.style.display = 'none';
+    const inputTaskName = document.querySelector('[data-input-task]');
+    inputTaskName.value = '';
 }
 
 function showCardModal() {
@@ -110,7 +114,12 @@ function showCardModal() {
 }
 
 function hideCardModal() {
+    const cardInputs = document.querySelectorAll('[data-input-card]');
     modalCardArea.style.display = 'none';
+
+    for (let input of cardInputs) {
+        input.value = '';
+    }
 }
 
 for (let column of kanbanColumns) {
@@ -122,3 +131,5 @@ createTaskButton.addEventListener('click', handleCreateTaskPress);
 addNewTaskButton.addEventListener('click', showModal);
 addNewCardButton.addEventListener('click', showCardModal);
 createNewCardButton.addEventListener('click', handleAddCard);
+closeCreateCard.addEventListener('click', hideModal);
+closeCreateColumn.addEventListener('click', hideCardModal);
