@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFF;
+}
+
+button {
+    border: none;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    cursor: pointer;
+    height: 40px;
+    border: 1px solid #999;
+    padding: 0 8px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+header {
+    display: flex;
+    padding: 12px;
+    gap: 12px;
+}
+
+main {
+    padding: 12px;
+}
+
+body {
+    background-color: #242326;
+}
+
+.card-column {
+    border: 1px solid #000;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 300px;
+    border-radius: 6px;
+}
+
+.card-column h1 {
+    font-size: 1.5rem;
+}
+
+.kanban-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 270px);
+    gap: 20px;
+    border-radius: 6px;
+}
+
+.card-column:nth-child(1) {
+    border: 2px solid #9d0c15;
+}
+
+.card-column:nth-child(2) {
+    border: 2px solid #2caf53;
+}
+
+.card-column:nth-child(3) {
+    border: 2px solid #2c91af;
+}
+
+.kanban-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #FFF;
+    min-height: 40px;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.modal-area, .modal-card-area {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+}
+
+.add-task-area {
+    display: flex;
+    background-color: #FFF;
+    width: 300px;
+    border-radius: 6px;
+    padding: 16px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-task-area h1 {
+    font-size: 1.4rem;
+    color: #000;
+}
+
+form {
+    margin-top: 12px;
+}
+
+label {
+    color: #000;
+    margin-bottom: 12px;
+}
+
+input {
+    height: 35px;
+    border: 1px solid #999;
+    padding-left: 12px;
+    border-radius: 6px;
+    width: 100%;
+    margin: 10px 0px;
+    color: #000;
+}
+
+.add-task-area button {
+    width: 150px;
+    color: #000;
+    margin-top: 18px;
+}
+
