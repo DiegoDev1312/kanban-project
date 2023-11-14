@@ -62,11 +62,11 @@ body {
 }
 
 .card-column:nth-child(2) {
-    border: 2px solid #2caf53;
+    border: 2px solid #2c91af; 
 }
 
 .card-column:nth-child(3) {
-    border: 2px solid #2c91af;
+    border: 2px solid #2caf53;
 }
 
 .kanban-card {
