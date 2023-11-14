@@ -16,6 +16,10 @@ function handleDragStart(event) {
     event.dataTransfer.setData('div', dragId);
 }
 
+function handleDeletePress(event, element) {
+    element.remove();
+}
+
 function handleAddCard() {
     const cardInputs = document.querySelectorAll('[data-input-card]');
     let cardH1 = '';
@@ -27,20 +31,37 @@ function handleAddCard() {
         } else {
             cardBorderColor = input.value
         }
+        input.value = '';
+    }
+
+    if (!cardH1) {
+        return alert('Insira o nome da área!');
     }
 
     const cardTitle = document.createElement('h1');
     const createNewCard = document.createElement('div');
+    const createTitleArea = document.createElement('div');
+    const createImageBin = document.createElement('img');    
+    
+    createImageBin.setAttribute('src', 'assets/images/bin-icon.svg');
+    createImageBin.setAttribute('alt', 'bin-icon');;
+    createImageBin.classList.add('img-header');
+    createImageBin.style.cursor = 'pointer';
+
     cardTitle.innerHTML = cardH1;
+    createTitleArea.classList.add('header-column-area');
+    createTitleArea.appendChild(cardTitle);
+    createTitleArea.appendChild(createImageBin);
 
     createNewCard.setAttribute('data-kanban-column', '');
     createNewCard.classList.add('card-column');
     createNewCard.style.borderColor = cardBorderColor;
-    createNewCard.appendChild(cardTitle);
+    createNewCard.appendChild(createTitleArea);
     createNewCard.addEventListener('drop', handleDrop);
     createNewCard.addEventListener('dragover', handleDragOver);
 
     kanbanArea.appendChild(createNewCard);
+    createImageBin.addEventListener('click', (event) => handleDeletePress(event, createNewCard))
     hideCardModal();
 }
 
@@ -60,6 +81,9 @@ function handleDrop(event) {
 function handleCreateTaskPress() {
     const kanbanCard = document.querySelectorAll('[data-kanban-card-id]');
     const inputTaskName = document.querySelector('[data-input-task]');
+    if (!inputTaskName.value) {
+        return alert('Insira um nome!');
+    }
     let newKanbanCard = document.createElement('div');
 
     newKanbanCard.innerHTML = inputTaskName.value;
@@ -97,4 +121,4 @@ for (let column of kanbanColumns) {
 createTaskButton.addEventListener('click', handleCreateTaskPress);
 addNewTaskButton.addEventListener('click', showModal);
 addNewCardButton.addEventListener('click', showCardModal);
-createNewCardButton.addEventListener('click', handleAddCard)
+createNewCardButton.addEventListener('click', handleAddCard);

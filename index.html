@@ -8,8 +8,8 @@
 </head>
 <body>
     <header>
-        <button data-add-task-button>Adicionar nova task</button>
-        <button data-add-card-button>Adicionar novo card</button>
+        <button data-add-task-button>Adicionar novo card</button>
+        <button data-add-card-button>Adicionar nova área</button>
     </header>
     <main>
         <div data-kanban-area class="kanban-area">
@@ -26,11 +26,11 @@
     </main>
     <div data-modal-area class="modal-area">
         <div class="add-task-area">
-            <h1>Adicione uma tarefa</h1>
+            <h1>Adicione um novo card</h1>
             <form>
                 <label>
-                    Nome da tarefa
-                    <input data-input-task placeholder="Nome da tarefa" type="text" />
+                    Nome do card
+                    <input data-input-task placeholder="Nome do card" type="text" />
                 </label>
             </form>
             <button data-create-task-button>Criar</button>
@@ -38,11 +38,11 @@
     </div>
     <div data-modal-card-area class="modal-card-area">
         <div class="add-task-area">
-            <h1>Adicione um card</h1>
+            <h1>Adicione uma nova área</h1>
             <form>
                 <label>
-                    Nome do card
-                    <input data-input-card="title" placeholder="Nome da tarefa" type="text" />
+                    Título da área
+                    <input data-input-card="title" placeholder="Título da área" type="text" />
                 </label>
                 <label>
                     Cor da borda
